@@ -1,0 +1,44 @@
+---
+title: "Dashboard das Eleições Legislativas 2025"
+format:
+  dashboard:
+    theme: cosmo
+---
+
+# Dashboard
+
+## Row
+
+### Column {width=20%}
+
+#### Métricas 1
+**41.75%**  
+Taxa de abstenção
+
+#### Métricas 2
+**10848816**  
+Total de inscritos
+
+#### Métricas 3
+**Braga**  
+Distrito com menor abstenção
+
+### Column {width=50%}
+
+#### Mapa Principal
+Mapa Principal Aqui.
+
+<div id="mapa1" style="height:300px;"></div>
+
+#### Mapa com Filtro de Partido
+Filtro de Partido e Mapa Secundário Aqui.
+
+<div id="mapa2" style="height:300px;"></div>
+
+### Column {width=30%}
+
+#### Tabela de Partidos
+Tabela de Resultados por Partido Aqui.
+
+#### Tabela de Distritos
+Tabela de Votos por Distrito Aqui.
