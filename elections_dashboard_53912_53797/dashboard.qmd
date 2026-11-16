@@ -2,7 +2,7 @@
 title: "Dashboard das Eleições Legislativas 2025"
 format:
   dashboard:
-    theme: cosmo
+    theme: vapor
 ---
 
 # Dashboard
