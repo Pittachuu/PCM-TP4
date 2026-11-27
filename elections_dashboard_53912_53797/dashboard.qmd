@@ -1,44 +1,160 @@
 ---
-title: "Dashboard das Eleições Legislativas 2025"
+title: "Eleições Legislativas 2025"
 format:
   dashboard:
-    theme: vapor
+    theme: quartz
+    nav-buttons: []
+    orientation: columns
+    scrolling: true
 ---
+```{ojs}
+//| output: false
+//| echo: false
 
-# Dashboard
+// Importar dados
+geo = FileAttachment("data/ContinenteDistritos_geo.geojson").json()
+results = FileAttachment("data/legislativas1.json").json()
 
-## Row
+// Importar bibliotecas
+html`<link rel="stylesheet" href="https:/unpkg.com/leaflet@1.9.4/dist/leaflet.css" >`
+```
 
-### Column {width=20%}
+```{ojs}
+//| echo: false
+//| output: false
 
-#### Métricas 1
-**41.75%**  
-Taxa de abstenção
+// Cores dos partidos
+function getPartyColors() {
+  return {
+    "PS": "#ff0000",
+    "PPD/PSD.CDS-PP": "#ff9900",
+    "CH": "#0000ff",
+    "IL": "#00ffff",
+    "B.E.": "#ff00ff",
+    "PCP-PEV": "#008000",
+    "L": "#800080",
+    "PAN": "#00ff00",
+    "ADN": "#8d99ae",
+    "JPP": "#00b3a4",
+    "PCTP/MRPP": "#b30000",
+    "R.I.R.": "#6d6875",
+    "VP": "#a7c957",
+    "E": "#bc6c25",
+    "MPT": "#588157",
+    "NC": "#b5838d",
+    "ND": "#7f5539",
+    "PLS": "#e9c46a",
+    "PPM": "#3a86ff",
+    "PTP": "#9d4edd"
+  };
+}
+```
 
-#### Métricas 2
-**10848816**  
-Total de inscritos
+```{ojs}
+//| echo: false
+//| output: false
 
-#### Métricas 3
-**Braga**  
-Distrito com menor abstenção
+// Linhas do JSON que não são partidos
+naoPartidos = ["Inscritos", "Votantes", "Brancos", "Nulos", "Votos Val. Exp. (VVE)"]
 
-### Column {width=50%}
+// Converte o nome do GeoJSON (AVEIRO) para o nome do JSON (Aveiro)
+function nomeDistrito(nome) {
+  return Object.keys(results.Inscritos).find(d => d.toUpperCase() === nome.toUpperCase());
+}
 
-#### Mapa Principal
-Mapa Principal Aqui.
+// Votos de cada partido num distrito, do maior para o menor
+function votosPorDistrito(distritoNome) {
+  const nome = nomeDistrito(distritoNome);
+  const result = [];
 
-<div id="mapa1" style="height:300px;"></div>
+  for (const [partido, distritos] of Object.entries(results)) {
+    if (!naoPartidos.includes(partido)) {
+      const votos = distritos[nome];
+      if (votos !== undefined) {
+        result.push({ partido, votos: +votos || 0 });
+      }
+    }
+  }
 
-#### Mapa com Filtro de Partido
+  return result.sort((a, b) => b.votos - a.votos);
+}
+```
+
+# Stats
+
+## Column {width=20%}
+
+### Métricas 1
+
+
+### Métricas 2
+
+
+### Métricas 3
+
+
+## Column {width=40%}
+
+### Mapa Principal
+
+```{ojs}
+//| echo: false
+//| title: "Mapa Principal"
+
+// Mapa principal
+mainMap = {
+  const mapDiv = html`<div style="height: 100%; min-height: 400px;"></div>`;
+
+  const map = L.map(mapDiv, {
+    zoomControl: false,
+    dragging: false,
+    scrollWheelZoom: false
+  });
+
+  map.setView([39.5, -8], 6);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+  L.geoJSON(geo, {
+    style: (feat) => {
+      const distrito = feat.properties.Distrito;
+      const vencedor = votosPorDistrito(distrito)[0]?.partido;
+      return {
+        color: "#4b4b4b",
+        weight: 1,
+        fillColor: getPartyColors()[vencedor] || "#b3afafab",
+        fillOpacity: 0.7
+      };
+    },
+    onEachFeature: (feat, layer) => {
+      const nome = nomeDistrito(feat.properties.Distrito);
+      const vencedor = votosPorDistrito(nome)[0];
+      layer.bindTooltip(`${nome}<br>Partido mais votado: ${vencedor.partido}<br>Votos: ${vencedor.votos.toLocaleString("pt-PT")}`, { sticky: true });
+    }
+  }).addTo(map);
+
+  setTimeout(() => map.invalidateSize(), 0);
+
+  return mapDiv;
+}
+```
+
+### Mapa com Filtro de Partido
 Filtro de Partido e Mapa Secundário Aqui.
 
 <div id="mapa2" style="height:300px;"></div>
 
-### Column {width=30%}
+## Column {width=40%}
 
-#### Tabela de Partidos
+### Tabela de Partidos
 Tabela de Resultados por Partido Aqui.
 
-#### Tabela de Distritos
+### Tabela de Distritos
 Tabela de Votos por Distrito Aqui.
+
+# Piechart
+
+## Column
+
+### Sunburst
+Aqui vai o gráfico sunburst.

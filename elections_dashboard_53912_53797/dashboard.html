@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dashboard das Eleições Legislativas 2025</title>
+<title>Eleições Legislativas 2025</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,9 +77,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="dashboard_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="dashboard_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="dashboard_files/libs/bootstrap/bootstrap-b7a5f6fe7a2fb1bccbd6ece8e4726845.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="dashboard_files/libs/bootstrap/bootstrap-dark-b7a5f6fe7a2fb1bccbd6ece8e4726845.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="dashboard_files/libs/bootstrap/bootstrap-b7a5f6fe7a2fb1bccbd6ece8e4726845.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<link href="dashboard_files/libs/bootstrap/bootstrap-7728018154ffc9be4b5f3ccdcce898f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="dashboard_files/libs/bootstrap/bootstrap-dark-7728018154ffc9be4b5f3ccdcce898f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="dashboard_files/libs/bootstrap/bootstrap-7728018154ffc9be4b5f3ccdcce898f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="dashboard_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
 <script src="dashboard_files/libs/quarto-dashboard/stickythead.js"></script>
 
@@ -53,11 +88,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="dashboard_files/libs/quarto-dashboard/web-components.js" type="module"></script>
 <script src="dashboard_files/libs/quarto-dashboard/components.js"></script>
 
+<script type="module" src="dashboard_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="dashboard_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
 
-<body class="quarto-dashboard dashboard-fill fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+<body class="quarto-dashboard fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <header id="quarto-dashboard-header">
 <nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
@@ -71,72 +108,177 @@ ul.task-list li input[type="checkbox"] {
 
 
       <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">Dashboard das Eleições Legislativas 2025</a></div>
+        <div class="navbar-title-text"><a href="#">Eleições Legislativas 2025</a></div>
         
         
       </div>
     </div>
-<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-dashboard" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#dashboard" data-scrolling="false" href="#dashboard" aria-controls="dashboard" aria-selected="true"><span class="nav-link-text">Dashboard</span></a></li></ul></div></div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-stats" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#stats" data-scrolling="true" href="#stats" aria-controls="stats" aria-selected="true"><span class="nav-link-text">Stats</span></a></li><li class="nav-item" role="presentation"><a id="tab-piechart" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#piechart" data-scrolling="true" href="#piechart" aria-controls="piechart" aria-selected="false"><span class="nav-link-text">Piechart</span></a></li></ul></div></div>
 </nav>
 </header>
-<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages" id="quarto-document-content" tabindex="-1" role="main">  
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container dashboard-scrolling quarto-dashboard-pages" id="quarto-document-content" tabindex="-1" role="main">  
 
-<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div id="dashboard" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-dashboard">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 20fr) minmax(3em, 50fr) minmax(3em, 30fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<p><strong>41.75%</strong><br>
-Taxa de abstenção</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<p><strong>10848816</strong><br>
-Total de inscritos</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<p><strong>Braga</strong><br>
-Distrito com menor abstenção</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<p>Mapa Principal Aqui.</p>
-<div id="mapa1" style="height:300px;" class="html-fill-item html-fill-container">
+<div class="cell hidden bslib-grid-item html-fill-item">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="15" data-source-offset="-21"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 14;"><span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>geo <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/ContinenteDistritos_geo.geojson"</span>)<span class="op">.</span><span class="fu">json</span>()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/legislativas1.json"</span>)<span class="op">.</span><span class="fu">json</span>()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Importar bibliotecas</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;link rel="stylesheet" href="https:/unpkg.com/leaflet@1.9.4/dist/leaflet.css" &gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
 
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell hidden bslib-grid-item html-fill-item">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="24" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 23;"><span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">// Cores dos partidos</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">getPartyColors</span>() {</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PS"</span><span class="op">:</span> <span class="st">"#ff0000"</span><span class="op">,</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PPD/PSD.CDS-PP"</span><span class="op">:</span> <span class="st">"#ff9900"</span><span class="op">,</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CH"</span><span class="op">:</span> <span class="st">"#0000ff"</span><span class="op">,</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IL"</span><span class="op">:</span> <span class="st">"#00ffff"</span><span class="op">,</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"B.E."</span><span class="op">:</span> <span class="st">"#ff00ff"</span><span class="op">,</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PCP-PEV"</span><span class="op">:</span> <span class="st">"#008000"</span><span class="op">,</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"L"</span><span class="op">:</span> <span class="st">"#800080"</span><span class="op">,</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PAN"</span><span class="op">:</span> <span class="st">"#00ff00"</span><span class="op">,</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ADN"</span><span class="op">:</span> <span class="st">"#8d99ae"</span><span class="op">,</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JPP"</span><span class="op">:</span> <span class="st">"#00b3a4"</span><span class="op">,</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PCTP/MRPP"</span><span class="op">:</span> <span class="st">"#b30000"</span><span class="op">,</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"R.I.R."</span><span class="op">:</span> <span class="st">"#6d6875"</span><span class="op">,</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"VP"</span><span class="op">:</span> <span class="st">"#a7c957"</span><span class="op">,</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"E"</span><span class="op">:</span> <span class="st">"#bc6c25"</span><span class="op">,</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MPT"</span><span class="op">:</span> <span class="st">"#588157"</span><span class="op">,</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NC"</span><span class="op">:</span> <span class="st">"#b5838d"</span><span class="op">,</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ND"</span><span class="op">:</span> <span class="st">"#7f5539"</span><span class="op">,</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PLS"</span><span class="op">:</span> <span class="st">"#e9c46a"</span><span class="op">,</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PPM"</span><span class="op">:</span> <span class="st">"#3a86ff"</span><span class="op">,</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PTP"</span><span class="op">:</span> <span class="st">"#9d4edd"</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell hidden bslib-grid-item html-fill-item">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="58" data-source-offset="-42"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>naoPartidos <span class="op">=</span> [<span class="st">"Inscritos"</span><span class="op">,</span> <span class="st">"Votantes"</span><span class="op">,</span> <span class="st">"Brancos"</span><span class="op">,</span> <span class="st">"Nulos"</span><span class="op">,</span> <span class="st">"Votos Val. Exp. (VVE)"</span>]</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co">// Converte o nome do GeoJSON (AVEIRO) para o nome do JSON (Aveiro)</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">nomeDistrito</span>(nome) {</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(results<span class="op">.</span><span class="at">Inscritos</span>)<span class="op">.</span><span class="fu">find</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="fu">toUpperCase</span>() <span class="op">===</span> nome<span class="op">.</span><span class="fu">toUpperCase</span>())<span class="op">;</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co">// Votos de cada partido num distrito, do maior para o menor</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">votosPorDistrito</span>(distritoNome) {</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> nome <span class="op">=</span> <span class="fu">nomeDistrito</span>(distritoNome)<span class="op">;</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> result <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> [partido<span class="op">,</span> distritos] <span class="kw">of</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(results)) {</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>naoPartidos<span class="op">.</span><span class="fu">includes</span>(partido)) {</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> votos <span class="op">=</span> distritos[nome]<span class="op">;</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (votos <span class="op">!==</span> <span class="kw">undefined</span>) {</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">push</span>({ partido<span class="op">,</span> <span class="dt">votos</span><span class="op">:</span> <span class="op">+</span>votos <span class="op">||</span> <span class="dv">0</span> })<span class="op">;</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> result<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">votos</span> <span class="op">-</span> a<span class="op">.</span><span class="at">votos</span>)<span class="op">;</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="flow" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="stats" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-stats">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 20fr) minmax(3em, 40fr) minmax(3em, 40fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: ; grid-auto-columns: minmax(0, 1fr);">
+
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Mapa Principal" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Mapa Principal
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb4" data-startfrom="102" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 101;"><span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="co">// Mapa principal</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>mainMap <span class="op">=</span> {</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mapDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="height: 100%; min-height: 400px;"&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> map <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(mapDiv<span class="op">,</span> {</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>    <span class="dt">zoomControl</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>    <span class="dt">dragging</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scrollWheelZoom</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">setView</span>([<span class="fl">39.5</span><span class="op">,</span> <span class="op">-</span><span class="dv">8</span>]<span class="op">,</span> <span class="dv">6</span>)<span class="op">;</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>  L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"</span>)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>  L<span class="op">.</span><span class="fu">geoJSON</span>(geo<span class="op">,</span> {</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> (feat) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> distrito <span class="op">=</span> feat<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">Distrito</span><span class="op">;</span></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> vencedor <span class="op">=</span> <span class="fu">votosPorDistrito</span>(distrito)[<span class="dv">0</span>]<span class="op">?.</span><span class="at">partido</span><span class="op">;</span></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> {</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">"#4b4b4b"</span><span class="op">,</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>        <span class="dt">weight</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>        <span class="dt">fillColor</span><span class="op">:</span> <span class="fu">getPartyColors</span>()[vencedor] <span class="op">||</span> <span class="st">"#b3afafab"</span><span class="op">,</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>        <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.7</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>      }<span class="op">;</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>    <span class="dt">onEachFeature</span><span class="op">:</span> (feat<span class="op">,</span> layer) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> nome <span class="op">=</span> <span class="fu">nomeDistrito</span>(feat<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">Distrito</span>)<span class="op">;</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> vencedor <span class="op">=</span> <span class="fu">votosPorDistrito</span>(nome)[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>      layer<span class="op">.</span><span class="fu">bindTooltip</span>(<span class="vs">`</span><span class="sc">${</span>nome<span class="sc">}</span><span class="vs">&lt;br&gt;Partido mais votado: </span><span class="sc">${</span>vencedor<span class="op">.</span><span class="at">partido</span><span class="sc">}</span><span class="vs">&lt;br&gt;Votos: </span><span class="sc">${</span>vencedor<span class="op">.</span><span class="at">votos</span><span class="op">.</span><span class="fu">toLocaleString</span>(<span class="st">"pt-PT"</span>)<span class="sc">}</span><span class="vs">`</span><span class="op">,</span> { <span class="dt">sticky</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>  <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> map<span class="op">.</span><span class="fu">invalidateSize</span>()<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mapDiv<span class="op">;</span></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-4" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -187,6 +329,25 @@ grid-auto-rows: minmax(0, 1fr);">
     <span class="bslib-full-screen-enter badge rounded-pill">
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="piechart" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-piechart">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>Aqui vai o gráfico sunburst.</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
 
 </div>
@@ -195,9 +356,19 @@ grid-auto-rows: minmax(0, 1fr);">
 </div>
 </div>
 </div>
-</div>
 
 
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxyXG4vLyBJbXBvcnRhciBkYWRvc1xyXG5nZW8gPSBGaWxlQXR0YWNobWVudChcImRhdGEvQ29udGluZW50ZURpc3RyaXRvc19nZW8uZ2VvanNvblwiKS5qc29uKClcclxucmVzdWx0cyA9IEZpbGVBdHRhY2htZW50KFwiZGF0YS9sZWdpc2xhdGl2YXMxLmpzb25cIikuanNvbigpXHJcblxyXG4vLyBJbXBvcnRhciBiaWJsaW90ZWNhc1xyXG5odG1sYDxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBocmVmPVwiaHR0cHM6L3VucGtnLmNvbS9sZWFmbGV0QDEuOS40L2Rpc3QvbGVhZmxldC5jc3NcIiA+YFxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcclxuLy8gQ29yZXMgZG9zIHBhcnRpZG9zXHJcbmZ1bmN0aW9uIGdldFBhcnR5Q29sb3JzKCkge1xyXG4gIHJldHVybiB7XHJcbiAgICBcIlBTXCI6IFwiI2ZmMDAwMFwiLFxyXG4gICAgXCJQUEQvUFNELkNEUy1QUFwiOiBcIiNmZjk5MDBcIixcclxuICAgIFwiQ0hcIjogXCIjMDAwMGZmXCIsXHJcbiAgICBcIklMXCI6IFwiIzAwZmZmZlwiLFxyXG4gICAgXCJCLkUuXCI6IFwiI2ZmMDBmZlwiLFxyXG4gICAgXCJQQ1AtUEVWXCI6IFwiIzAwODAwMFwiLFxyXG4gICAgXCJMXCI6IFwiIzgwMDA4MFwiLFxyXG4gICAgXCJQQU5cIjogXCIjMDBmZjAwXCIsXHJcbiAgICBcIkFETlwiOiBcIiM4ZDk5YWVcIixcclxuICAgIFwiSlBQXCI6IFwiIzAwYjNhNFwiLFxyXG4gICAgXCJQQ1RQL01SUFBcIjogXCIjYjMwMDAwXCIsXHJcbiAgICBcIlIuSS5SLlwiOiBcIiM2ZDY4NzVcIixcclxuICAgIFwiVlBcIjogXCIjYTdjOTU3XCIsXHJcbiAgICBcIkVcIjogXCIjYmM2YzI1XCIsXHJcbiAgICBcIk1QVFwiOiBcIiM1ODgxNTdcIixcclxuICAgIFwiTkNcIjogXCIjYjU4MzhkXCIsXHJcbiAgICBcIk5EXCI6IFwiIzdmNTUzOVwiLFxyXG4gICAgXCJQTFNcIjogXCIjZTljNDZhXCIsXHJcbiAgICBcIlBQTVwiOiBcIiMzYTg2ZmZcIixcclxuICAgIFwiUFRQXCI6IFwiIzlkNGVkZFwiXHJcbiAgfTtcclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcclxuLy8gTGluaGFzIGRvIEpTT04gcXVlIG7Do28gc8OjbyBwYXJ0aWRvc1xyXG5uYW9QYXJ0aWRvcyA9IFtcIkluc2NyaXRvc1wiLCBcIlZvdGFudGVzXCIsIFwiQnJhbmNvc1wiLCBcIk51bG9zXCIsIFwiVm90b3MgVmFsLiBFeHAuIChWVkUpXCJdXHJcblxyXG4vLyBDb252ZXJ0ZSBvIG5vbWUgZG8gR2VvSlNPTiAoQVZFSVJPKSBwYXJhIG8gbm9tZSBkbyBKU09OIChBdmVpcm8pXHJcbmZ1bmN0aW9uIG5vbWVEaXN0cml0byhub21lKSB7XHJcbiAgcmV0dXJuIE9iamVjdC5rZXlzKHJlc3VsdHMuSW5zY3JpdG9zKS5maW5kKGQgPT4gZC50b1VwcGVyQ2FzZSgpID09PSBub21lLnRvVXBwZXJDYXNlKCkpO1xyXG59XHJcblxyXG4vLyBWb3RvcyBkZSBjYWRhIHBhcnRpZG8gbnVtIGRpc3RyaXRvLCBkbyBtYWlvciBwYXJhIG8gbWVub3JcclxuZnVuY3Rpb24gdm90b3NQb3JEaXN0cml0byhkaXN0cml0b05vbWUpIHtcclxuICBjb25zdCBub21lID0gbm9tZURpc3RyaXRvKGRpc3RyaXRvTm9tZSk7XHJcbiAgY29uc3QgcmVzdWx0ID0gW107XHJcblxyXG4gIGZvciAoY29uc3QgW3BhcnRpZG8sIGRpc3RyaXRvc10gb2YgT2JqZWN0LmVudHJpZXMocmVzdWx0cykpIHtcclxuICAgIGlmICghbmFvUGFydGlkb3MuaW5jbHVkZXMocGFydGlkbykpIHtcclxuICAgICAgY29uc3Qgdm90b3MgPSBkaXN0cml0b3Nbbm9tZV07XHJcbiAgICAgIGlmICh2b3RvcyAhPT0gdW5kZWZpbmVkKSB7XHJcbiAgICAgICAgcmVzdWx0LnB1c2goeyBwYXJ0aWRvLCB2b3RvczogK3ZvdG9zIHx8IDAgfSk7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcblxyXG4gIHJldHVybiByZXN1bHQuc29ydCgoYSwgYikgPT4gYi52b3RvcyAtIGEudm90b3MpO1xyXG59XHJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxyXG4vLyBNYXBhIHByaW5jaXBhbFxyXG5tYWluTWFwID0ge1xyXG4gIGNvbnN0IG1hcERpdiA9IGh0bWxgPGRpdiBzdHlsZT1cImhlaWdodDogMTAwJTsgbWluLWhlaWdodDogNDAwcHg7XCI+PC9kaXY+YDtcclxuXHJcbiAgY29uc3QgbWFwID0gTC5tYXAobWFwRGl2LCB7XHJcbiAgICB6b29tQ29udHJvbDogZmFsc2UsXHJcbiAgICBkcmFnZ2luZzogZmFsc2UsXHJcbiAgICBzY3JvbGxXaGVlbFpvb206IGZhbHNlXHJcbiAgfSk7XHJcblxyXG4gIG1hcC5zZXRWaWV3KFszOS41LCAtOF0sIDYpO1xyXG5cclxuICBMLnRpbGVMYXllcihcImh0dHBzOi8ve3N9LnRpbGUub3BlbnN0cmVldG1hcC5vcmcve3p9L3t4fS97eX0ucG5nXCIpLmFkZFRvKG1hcCk7XHJcblxyXG4gIEwuZ2VvSlNPTihnZW8sIHtcclxuICAgIHN0eWxlOiAoZmVhdCkgPT4ge1xyXG4gICAgICBjb25zdCBkaXN0cml0byA9IGZlYXQucHJvcGVydGllcy5EaXN0cml0bztcclxuICAgICAgY29uc3QgdmVuY2Vkb3IgPSB2b3Rvc1BvckRpc3RyaXRvKGRpc3RyaXRvKVswXT8ucGFydGlkbztcclxuICAgICAgcmV0dXJuIHtcclxuICAgICAgICBjb2xvcjogXCIjNGI0YjRiXCIsXHJcbiAgICAgICAgd2VpZ2h0OiAxLFxyXG4gICAgICAgIGZpbGxDb2xvcjogZ2V0UGFydHlDb2xvcnMoKVt2ZW5jZWRvcl0gfHwgXCIjYjNhZmFmYWJcIixcclxuICAgICAgICBmaWxsT3BhY2l0eTogMC43XHJcbiAgICAgIH07XHJcbiAgICB9LFxyXG4gICAgb25FYWNoRmVhdHVyZTogKGZlYXQsIGxheWVyKSA9PiB7XHJcbiAgICAgIGNvbnN0IG5vbWUgPSBub21lRGlzdHJpdG8oZmVhdC5wcm9wZXJ0aWVzLkRpc3RyaXRvKTtcclxuICAgICAgY29uc3QgdmVuY2Vkb3IgPSB2b3Rvc1BvckRpc3RyaXRvKG5vbWUpWzBdO1xyXG4gICAgICBsYXllci5iaW5kVG9vbHRpcChgJHtub21lfTxicj5QYXJ0aWRvIG1haXMgdm90YWRvOiAke3ZlbmNlZG9yLnBhcnRpZG99PGJyPlZvdG9zOiAke3ZlbmNlZG9yLnZvdG9zLnRvTG9jYWxlU3RyaW5nKFwicHQtUFRcIil9YCwgeyBzdGlja3k6IHRydWUgfSk7XHJcbiAgICB9XHJcbiAgfSkuYWRkVG8obWFwKTtcclxuXHJcbiAgc2V0VGltZW91dCgoKSA9PiBtYXAuaW52YWxpZGF0ZVNpemUoKSwgMCk7XHJcblxyXG4gIHJldHVybiBtYXBEaXY7XHJcbn1cclxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../..";
+window._ojs.paths.runtimeToRoot = "../../../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
