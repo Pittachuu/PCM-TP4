@@ -1,8 +1,9 @@
 ---
-title: "Eleições Legislativas 2025"
+title: "Eleições Legislativas 2026"
 format:
   dashboard:
     theme: quartz
+    css: style.css
     nav-buttons: []
     orientation: columns
     scrolling: true
@@ -80,18 +81,27 @@ function votosPorDistrito(distritoNome) {
 }
 ```
 
+```{ojs}
+//| echo: false
+//| output: false
+
+// Distrito selecionado no mapa
+mutable selectedDistrito = "Aveiro"
+```
+
+
 # Stats
 
 ## Column {width=20%}
 
 ### Métricas 1
-
+1
 
 ### Métricas 2
-
+2
 
 ### Métricas 3
-
+3
 
 ## Column {width=40%}
 
@@ -100,6 +110,7 @@ function votosPorDistrito(distritoNome) {
 ```{ojs}
 //| echo: false
 //| title: "Mapa Principal"
+//| height: 580px
 
 // Mapa principal
 mainMap = {
@@ -130,6 +141,9 @@ mainMap = {
       const nome = nomeDistrito(feat.properties.Distrito);
       const vencedor = votosPorDistrito(nome)[0];
       layer.bindTooltip(`${nome}<br>Partido mais votado: ${vencedor.partido}<br>Votos: ${vencedor.votos.toLocaleString("pt-PT")}`, { sticky: true });
+      layer.on("click", () => {
+        mutable selectedDistrito = nome;
+      });
     }
   }).addTo(map);
 
@@ -142,12 +156,36 @@ mainMap = {
 ### Mapa com Filtro de Partido
 Filtro de Partido e Mapa Secundário Aqui.
 
-<div id="mapa2" style="height:300px;"></div>
-
 ## Column {width=40%}
 
 ### Tabela de Partidos
-Tabela de Resultados por Partido Aqui.
+
+```{ojs}
+//| echo: false
+//| title: "Tabela de Partidos"
+//| height: 580px
+
+// Tabela que reage ao distrito selecionado no mapa
+tabelaPartidos = {
+  const nome = nomeDistrito(selectedDistrito);
+  const dados = votosPorDistrito(nome);
+
+  return html`<div class="tabela-partidos">
+    <strong>${nome}</strong>
+    <table>
+      <thead>
+        <tr><th>partido</th><th>votos</th></tr>
+      </thead>
+      <tbody>
+        ${dados.map(d => html`<tr>
+          <td>${d.partido}</td>
+          <td>${d.votos.toLocaleString("pt-PT")}</td>
+        </tr>`)}
+      </tbody>
+    </table>
+  </div>`;
+}
+```
 
 ### Tabela de Distritos
 Tabela de Votos por Distrito Aqui.

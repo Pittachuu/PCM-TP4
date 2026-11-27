@@ -1,0 +1,62 @@
+
+.card[data-full-screen="true"] {
+  background-color: white !important;
+  color: #212529;
+}
+
+.card[data-full-screen="true"] .card-header {
+  color: #212529;
+}
+
+.card[data-full-screen="true"] .tabela-partidos {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Tabela de partidos */
+.tabela-partidos table {
+  /* width: largura da tabela. 100% ocupa a largura toda do cartão */
+  width: 100%;
+  /* border-collapse: junta as linhas das células numa só, sem espaços entre elas */
+  border-collapse: collapse;
+}
+
+.tabela-partidos th {
+  /* background-color: cor de fundo da célula */
+  background-color: #6a6fc4;
+  /* color: cor do texto */
+  color: white;
+  /* text-align: alinhamento do texto (left = à esquerda) */
+  text-align: left;
+  /* padding: espaço entre o texto e o limite da célula (8px em cima e em baixo, 12px nos lados) */
+  padding: 8px 12px;
+  /* position: sticky e top: 0 prendem o cabeçalho no topo quando se faz scroll */
+  position: sticky;
+  top: 0;
+}
+
+.tabela-partidos td {
+  padding: 8px 12px;
+  /* border-bottom: linha por baixo da célula (espessura, tipo e cor) */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+/* A 2.ª coluna (votos) fica alinhada à direita */
+.tabela-partidos th:last-child {
+  text-align: right;
+}
+
+.tabela-partidos td:last-child {
+  text-align: right;
+}
+
+/* Tabela no cartão expandido: texto escuro sobre fundo branco */
+.card[data-full-screen="true"] .tabela-partidos td {
+  color: #212529;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card[data-full-screen="true"] .tabela-partidos strong {
+  color: #212529;
+}
